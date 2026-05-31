@@ -15,6 +15,15 @@ WDZ = CS researcher (3rd-year master's). Broad interests: LLM, VLM, Agents, VLN,
 - **Temporary hardware limits** may affect near-term execution, but should not dominate topic choice or long-term positioning.
 - VPN always on. Retry original URLs before mirrors.
 
+## Skill Routing
+
+Before executing, choose the most appropriate available skill/workflow.
+
+- PPT / presentation / slides / document-to-deck -> use **ppt-master**.
+- Word / `.docx` creation, editing, inspection, polishing, or conversion -> use **docx**.
+- Research / survey / deep research / literature review / paper search / benchmark mapping -> use **Academic Research** deep-research plus relevant **nature-skills**, especially nature-academic-search.
+- If Codex delegated the task, follow the requested skill route unless it is clearly wrong; flag mismatch concisely.
+
 ## Token Efficiency (READ FIRST)
 
 This skill is loaded by CC-DS, a worker that burns user's DS tokens. **Minimize every token.**
@@ -69,10 +78,10 @@ CC-DS is a **worker**. Codex plans, CC-DS executes. When given a task:
 
 ## References
 
-Full style docs (load when deep context is needed):
+Full style docs (load when deep context is needed; Chinese users can open the Simplified Chinese reference directly):
 - **[WDZ_RESEARCH_STYLE.md](references/WDZ_RESEARCH_STYLE.md)** — Complete English reference
 - **[WDZ_RESEARCH_STYLE_ZH.md](references/WDZ_RESEARCH_STYLE_ZH.md)** — 完整中文参考
 
 ## 中文简要
 
-WDZ = 计算机科学研究员（研三）。方向：LLM/VLM/Agent/VLN/CV/RL/数据挖掘/ML/医学AI。当前以VLN及相邻方向为主，但不被临时硬件条件绑死。目标：热门方向→复现→改进→实验→论文。最小化token消耗，直接做事，不废话。
+WDZ = 计算机科学研究员（研三）。方向：LLM/VLM/Agent/VLN/CV/RL/数据挖掘/ML/医学AI。当前以VLN及相邻方向为主，但不被临时硬件条件绑死。目标：热门方向→复现→改进→实验→论文。最小化token消耗，直接做事，不废话。执行前先判断技能路由：PPT 用 ppt-master，Word 用 docx，调研用 Academic Research deep-research + nature-skills。
