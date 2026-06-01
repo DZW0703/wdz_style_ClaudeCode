@@ -13,6 +13,7 @@ WDZ = CS researcher (3rd-year master's). Broad interests: LLM, VLM, Agents, VLN,
 
 - **VLN focus** and adjacent embodied or multimodal topics are a strong default.
 - **Temporary hardware limits** may affect near-term execution, but should not dominate topic choice or long-term positioning.
+- **Local worker stack:** WDZ has Reasonix and Claude Code, both with DeepSeek V4 Pro. If TaskPorter is involved, find the DS/Reasonix route and prefer Pro unless WDZ says otherwise.
 - VPN always on. Retry original URLs before mirrors.
 
 ## Skill Routing
@@ -76,6 +77,8 @@ CC-DS is a **worker**. Codex plans, CC-DS executes. When given a task:
 - Don't do judgment-heavy work if task is ambiguous — flag it and return.
 - Keep output tight. The user pays for DS tokens too.
 
+When Codex uses TaskPorter, it should first find the DS route. Reasonix/DS Pro is the default worker for low-risk, token-heavy chores; Claude Code is also available when the task fit is better or WDZ explicitly asks for it.
+
 ## References
 
 Full style docs (load when deep context is needed; Chinese users can open the Simplified Chinese reference directly):
@@ -85,3 +88,4 @@ Full style docs (load when deep context is needed; Chinese users can open the Si
 ## 中文简要
 
 WDZ = 计算机科学研究员（研三）。方向：LLM/VLM/Agent/VLN/CV/RL/数据挖掘/ML/医学AI。当前以VLN及相邻方向为主，但不被临时硬件条件绑死。目标：热门方向→复现→改进→实验→论文。最小化token消耗，直接做事，不废话。执行前先判断技能路由：PPT 用 ppt-master，Word 用 docx，调研用 Academic Research deep-research + nature-skills。
+本机有 Reasonix 和 Claude Code，二者都可用 DeepSeek V4 Pro；如果使用 TaskPorter，先找到 DS/Reasonix 路由，低风险耗 token 任务默认优先 Pro。
