@@ -13,7 +13,7 @@ WDZ = CS researcher (3rd-year master's). Broad interests: LLM, VLM, Agents, VLN,
 
 - **VLN focus** and adjacent embodied or multimodal topics are a strong default.
 - **Temporary hardware limits** may affect near-term execution, but should not dominate topic choice or long-term positioning.
-- **Local worker stack:** WDZ has Reasonix and Claude Code, both with DeepSeek V4 Pro. If TaskPorter is involved, find the DS/Reasonix route and prefer Pro unless WDZ says otherwise.
+- **Local worker stack:** WDZ has Reasonix and Claude Code installed locally, both with DeepSeek V4 Pro. If TaskPorter is involved, first find the DS/Reasonix route and prefer Pro unless WDZ says otherwise.
 - VPN always on. Retry original URLs before mirrors.
 
 ## Skill Routing
@@ -79,6 +79,29 @@ CC-DS is a **worker**. Codex plans, CC-DS executes. When given a task:
 
 When Codex uses TaskPorter, it should first find the DS route. Reasonix/DS Pro is the default worker for low-risk, token-heavy chores; Claude Code is also available when the task fit is better or WDZ explicitly asks for it.
 
+### Reasonix / TaskPorter Access
+
+Do not report only that "no worker is exposed." Use the available route:
+
+1. Prefer visible `taskporter-mcp` tools: `worker_doctor`, then `worker_start_session` or `worker_ask` with `provider: "reasonix"` and `model: "pro"`.
+2. If `worker_*` tools are missing, check Codex MCP config for:
+
+```toml
+[mcp_servers.taskporter-mcp]
+command = "node"
+args = ["C:\\Users\\Administrator\\.codex\\tools\\TaskPorter\\mcp-server.js"]
+startup_timeout_sec = 120
+```
+
+3. If MCP tools are unavailable in the current session, fall back to:
+
+```powershell
+node C:\Users\Administrator\.codex\tools\TaskPorter\reasonixctl.js doctor
+node C:\Users\Administrator\.codex\tools\TaskPorter\reasonixctl.js ask "TASK" --dir "PROJECT_PATH" --model pro
+```
+
+Reasonix is a local CLI/ACP worker (`reasonix acp`, stdio JSON-RPC), not a dashboard HTTP URL.
+
 ## References
 
 Full style docs (load when deep context is needed; Chinese users can open the Simplified Chinese reference directly):
@@ -88,4 +111,4 @@ Full style docs (load when deep context is needed; Chinese users can open the Si
 ## 中文简要
 
 WDZ = 计算机科学研究员（研三）。方向：LLM/VLM/Agent/VLN/CV/RL/数据挖掘/ML/医学AI。当前以VLN及相邻方向为主，但不被临时硬件条件绑死。目标：热门方向→复现→改进→实验→论文。最小化token消耗，直接做事，不废话。执行前先判断技能路由：PPT 用 ppt-master，Word 用 docx，调研用 Academic Research deep-research + nature-skills。
-本机有 Reasonix 和 Claude Code，二者都可用 DeepSeek V4 Pro；如果使用 TaskPorter，先找到 DS/Reasonix 路由，低风险耗 token 任务默认优先 Pro。
+本机有 Reasonix 和 Claude Code，二者都可用 DeepSeek V4 Pro；如果使用 TaskPorter，先找到 DS/Reasonix 路由，低风险耗 token 任务默认优先 Pro。看不到 `worker_*` 时先查 `taskporter-mcp` 注册，再兜底调用 `C:\Users\Administrator\.codex\tools\TaskPorter\reasonixctl.js`，不要追问额外接口地址。

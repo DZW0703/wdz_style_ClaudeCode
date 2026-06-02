@@ -17,6 +17,19 @@ Before execution, the skill should choose the strongest available specialized wo
 - Research, survey, deep research, literature review, paper search, or benchmark mapping -> use **Academic Research** deep-research plus relevant **nature-skills**.
 - If Codex delegated the task, follow Codex's route unless it is clearly mismatched; flag mismatches concisely.
 
+## TaskPorter / Reasonix
+
+WDZ's machine has Reasonix and Claude Code, both backed by DeepSeek V4 Pro. For low-risk, token-heavy delegation, Codex should prefer TaskPorter -> Reasonix/DS Pro.
+
+If `worker_*` tools are missing, check `taskporter-mcp` in `C:\Users\Administrator\.codex\config.toml`; if MCP tools are unavailable in the current session, fall back to:
+
+```powershell
+node C:\Users\Administrator\.codex\tools\TaskPorter\reasonixctl.js doctor
+node C:\Users\Administrator\.codex\tools\TaskPorter\reasonixctl.js ask "TASK" --dir "PROJECT_PATH" --model pro
+```
+
+Reasonix is reached through `reasonix acp` / stdio JSON-RPC, not a dashboard HTTP URL.
+
 ## Install
 
 Copy the repository contents into the Claude skills directory:
