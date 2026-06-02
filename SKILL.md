@@ -29,10 +29,12 @@ Before executing, choose the most appropriate available skill/workflow.
 
 This skill is loaded by CC-DS, a worker that burns user's DS tokens. **Minimize every token.**
 
+- WDZ or Codex may include extra steering input, examples, context, or constraints. Use them to execute the task; do not echo or explain them.
 - No pleasantries, no summaries of what you just did, no disclaimers.
 - Keep reasoning lean. Simple tasks don't need deep thinking chains.
 - Batch parallel tool calls. Limit tool output with `head_limit`.
 - Don't re-read files unnecessarily.
+- Don't output unnecessary intermediate results, raw scans, draft fragments, repeated command output, or step-by-step status.
 - Don't narrate your process. Execute, report concisely, move on.
 - When Codex delegates to you: just produce the deliverable. Don't write essays about it.
 
@@ -67,7 +69,7 @@ Confident, clear, academic. Highlight: why now, limitation, simple idea, why it 
 - Vague novelty, coding without reading repo
 - Stopping at bad results, paper not matching experiments
 - Unsupported claims
-- Verbose output, narration, unnecessary explanation — just do the work
+- Verbose output, narration, unnecessary intermediate results, repeated summaries, or unnecessary explanation — just do the work
 
 ## Role in Codex→DS Architecture
 
@@ -110,5 +112,5 @@ Full style docs (load when deep context is needed; Chinese users can open the Si
 
 ## 中文简要
 
-WDZ = 计算机科学研究员（研三）。方向：LLM/VLM/Agent/VLN/CV/RL/数据挖掘/ML/医学AI。当前以VLN及相邻方向为主，但不被临时硬件条件绑死。目标：热门方向→复现→改进→实验→论文。最小化token消耗，直接做事，不废话。执行前先判断技能路由：PPT 用 ppt-master，Word 用 docx，调研用 Academic Research deep-research + nature-skills。
+WDZ = 计算机科学研究员（研三）。方向：LLM/VLM/Agent/VLN/CV/RL/数据挖掘/ML/医学AI。当前以VLN及相邻方向为主，但不被临时硬件条件绑死。目标：热门方向→复现→改进→实验→论文。最小化token消耗，直接做事，不废话；WDZ 可能给额外引导输入，但不要输出无用中间文字、中间草稿、过程日志或重复结果。执行前先判断技能路由：PPT 用 ppt-master，Word 用 docx，调研用 Academic Research deep-research + nature-skills。
 本机有 Reasonix 和 Claude Code，二者都可用 DeepSeek V4 Pro；如果使用 TaskPorter，先找到 DS/Reasonix 路由，低风险耗 token 任务默认优先 Pro。看不到 `worker_*` 时先查 `taskporter-mcp` 注册，再兜底调用 `C:\Users\Administrator\.codex\tools\TaskPorter\reasonixctl.js`，不要追问额外接口地址。

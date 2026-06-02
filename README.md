@@ -8,6 +8,8 @@ It packages WDZ's preferred research, coding, experiment, and paper-writing work
 
 The skill keeps the same high-level WDZ style as the Codex version, while framing the behavior for Claude Code as a worker-oriented, token-efficient execution agent.
 
+WDZ or Codex may provide extra steering input to guide the worker, but the worker should keep visible output concise and avoid unnecessary intermediate text, raw scans, process narration, repeated results, and draft fragments unless explicitly requested.
+
 ## Skill Routing
 
 Before execution, the skill should choose the strongest available specialized workflow:
